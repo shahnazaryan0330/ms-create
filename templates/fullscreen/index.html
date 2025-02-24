@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style type="text/css">
+		body {
+			margin: 0;
+			padding: 0;
+		}
+
+		#banner:hover {
+			cursor: pointer;
+		}
+
+		* {
+			box-sizing: border-box;
+			background-repeat: no-repeat;
+			background-size: contain;
+			background-position: center;
+		}
+
+		.full_scr {
+			width: 100vw;
+			height: 100vh;
+			background-color: rgba(255, 255, 255, .5);
+			display: flex;
+			justify-content: center;
+			align-items: center
+		}
+
+		#banner {
+			max-width: 800px;
+			height: 600px;
+			width: 100%;
+			-webkit-background-size: cover;
+			-moz-background-size: cover;
+			-o-background-size: cover;
+			background-size: cover;
+			position: relative;
+			overflow: hidden;
+			background-color: #fff;
+
+		}
+
+		#banner:hover {
+			cursor: pointer
+		}
+
+		.main_content,
+		.main_content * {
+			animation-timing-function: ease;
+			animation-duration: 7s;
+			animation-iteration-count: infinite
+		}
+
+		.main_content {
+			position: relative;
+			width: 100%;
+			height: 100%;
+			display: flex;
+			align-items: center;
+			flex-direction: column
+		}
+
+		@media (max-width:801px) {
+			#banner {
+				height: 80%
+			}
+		}
+
+		@media (max-height:601px) {
+			#banner {
+				height: 80%
+			}
+		}
+
+		.display_none {
+			display: none;
+		}
+	</style>
+	{{cssLinks}}
+</head>
+
+<body>
+	<div class="full_scr">
+		<div id="banner">
+			<a href="%reference%" target="%target%" class="bannerClickTag">
+				<div class="main_content">
+				</div>
+			</a>
+
+			<div id="adfoxCloseButton" class="ms_close_button"></div>
+			<style>
+				.ms_close_button {
+					position: absolute;
+					right: 2px;
+					top: 2px;
+					width: 32px;
+					height: 32px;
+					opacity: 1;
+					z-index: 999999
+				}
+
+				.ms_close_button:after,
+				.ms_close_button:before {
+					position: absolute;
+					left: calc(50% - 4px);
+					top: 50%;
+					content: ' ';
+					height: 34px;
+					border: solid 1.7px #000;
+					width: 2px;
+					background-color: #fff;
+					transition: .5s ease
+				}
+
+				.ms_close_button:before {
+					transform: translate(50%, -50%) rotate(45deg)
+				}
+
+				.ms_close_button:after {
+					transform: translate(50%, -50%) rotate(-45deg)
+				}
+
+				.ms_close_button:hover {
+					cursor: pointer
+				}
+
+				.ms_close_button:hover:after {
+					transform: translate(50%, -50%) rotate(45deg);
+					border: solid 1.7px #fff;
+					background-color: #000;
+					outline: 0
+				}
+
+				.ms_close_button:hover:before {
+					transform: translate(50%, -50%) rotate(-45deg);
+					border: solid 1.7px #fff;
+					background-color: #000;
+					outline: 0
+				}
+			</style>
+			<style>
+				#banner,
+				body {
+					position: relative !important;
+					transition: .5s ease
+				}
+
+				.classs {
+					position: absolute !important;
+					top: 0px;
+					left: 0;
+					height: 25px;
+					z-index: 999999999;
+					transition: .5s ease;
+					width: 39px
+				}
+
+				.classs:hover .ms_text__ {
+					display: block;
+					opacity: 1
+				}
+
+				.classs:hover {
+					width: 95px
+				}
+
+				body {
+					position: relative;
+					transition: .5s ease
+				}
+
+				.display_none {
+					display: none;
+					transition: .5s ease
+				}
+
+				#logo_ms {
+					right: 0;
+					left: inherit;
+					padding: 4px;
+					position: absolute;
+					top: 0;
+					display: flex;
+					justify-content: space-around;
+					transition: .5s ease;
+					padding: 0px;
+					width: 100%;
+					height: 25px;
+					overflow: hidden;
+					align-items: center;
+					border-top-right-radius: 16px;
+					border-bottom-right-radius: 16px;
+					background-color: #24202073;
+					transition: .5s ease
+				}
+
+				.ms_logo__ {
+					width: 25px;
+					height: 25px;
+					transition: .5s ease;
+					animation: ms_logo__ 2s ease infinite
+				}
+
+				.classs:hover .ms_logo__ {
+					transition: 2s ease;
+					transform: rotate(720deg)
+				}
+
+				.ms_text__ {
+					height: 90%;
+					width: auto;
+					display: none;
+					transition: .5s ease;
+					opacity: 0
+				}
+			</style> <a class="classs" onclick='click_im();'
+				href="https://mediasystems.am/?utm_source=network&utm_medium=fullscreen&utm_campaign=ms"
+				target="_blank">
+				<div class="display_none">
+					<div id="havayi"></div>
+				</div>
+				<div id="logo_ms"><img class='ms_text__'
+						src="https://cloud.mediasystems.am/banners/videos/file602cc2d87a936.png"><img class='ms_logo__'
+						src="https://cloud.mediasystems.am/banners/videos/file602cc229b23b1.png"></div>
+			</a>
+			<script>function click_im() { document.getElementById("havayi").innerHTML = `<img src="http://ads.adfox.ru/376262/getCode?p1=cygvz&p2=frfe&pfc=fhfht&pfb=pfwhg&pr=${Math.round(Math.random() * 10000000)}&pe=b" border=0 width=1 height=1>` }</script>
+		</div>
+	</div>
+</body>
+<script>
+	window.onload = function () {
+		let closeButton = document.querySelector("#adfoxCloseButton").onclick = function () {
+			window.parent.postMessage('msfullscreenclosed', '*');
+			window.destroyBanner();
+		}
+	}
+</script>
+
+</html>

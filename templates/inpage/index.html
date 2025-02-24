@@ -1,0 +1,176 @@
+<html>
+
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style>
+		body {
+			position: relative;
+			margin: 0;
+			padding: 0;
+		}
+
+		* {
+			background-repeat: no-repeat;
+			background-size: contain;
+			background-position: center;
+		}
+
+		#banner:hover {
+			cursor: pointer;
+		}
+
+		.display_none,
+		body {
+			display: none;
+		}
+
+		#banner {
+			height: 140px;
+			width: 100%;
+			background-color: #ffffff;
+			background-image: url('');
+			background-size: cover;
+			overflow: hidden;
+		}
+
+		#banner a {
+			height: 100%;
+			display: flex;
+			flex-direction: row;
+		}
+
+		.main {
+			width: 100%;
+			height: 100%;
+			display: flex;
+			position: relative;
+			overflow: hidden;
+			justify-content: space-between;
+		}
+	</style>
+
+{{cssLinks}}
+</head>
+
+<body>
+	<div id='banner'>
+		<a href="%reference%" target="%target%" class="bannerClickTag">
+			<div class='main'>
+			</div>
+			<div class="display_none">
+				<img src="" alt="">
+			</div>
+		</a>
+	</div>
+	<style>
+		#banner,
+		body {
+			position: relative !important;
+			transition: .5s ease
+		}
+
+		.classs {
+			position: absolute !important;
+			top: 115px;
+			right: 0;
+			height: 25px;
+			z-index: 999999999;
+			transition: .5s ease;
+			width: 39px;
+		}
+
+		.classs:hover .ms_text__ {
+			display: block;
+			opacity: 1
+		}
+
+		.classs:hover {
+			width: 130px
+		}
+
+		body {
+			position: relative;
+			transition: .5s ease
+		}
+
+		.display_none {
+			display: none;
+			transition: .5s ease
+		}
+
+		#logo_ms {
+			right: 0;
+			left: inherit;
+			padding: 4px;
+			position: absolute;
+			top: 0;
+			display: flex;
+			justify-content: space-around;
+			transition: .5s ease;
+			padding: 0px;
+			width: 100%;
+			height: 25px;
+			overflow: hidden;
+			align-items: center;
+			border-top-left-radius: 16px;
+			border-bottom-left-radius: 16px;
+			background-color: #24202073;
+			transition: .5s ease
+		}
+
+		.ms_logo__ {
+			width: 25px;
+			height: 25px;
+			transition: .5s ease;
+			animation: ms_logo__ 2s ease infinite
+		}
+
+		.classs:hover .ms_logo__ {
+			transition: 2s ease;
+			transform: rotate(720deg)
+		}
+
+		.ms_text__ {
+			height: 90%;
+			width: auto;
+			display: none;
+			transition: .5s ease;
+			opacity: 0
+		}
+
+		@media screen and (max-width: 500px) {
+			.ms_logo__ {
+				width: 20px;
+				height: 20px
+			}
+
+			#logo_ms {
+				height: 20px
+			}
+
+			.classs {
+				height: 20px;
+				top: 120px
+			}
+		}
+	</style>
+	<a class="classs" onclick='click_im();'
+		href="https://mediasystems.am/?utm_source=network&utm_medium=inpage&utm_campaign=ms" target="_blank">
+		<div class="display_none">
+			<div id="havayi"></div>
+		</div>
+		<div id="logo_ms"><img class='ms_logo__'
+				src="https://cloud.mediasystems.am/banners/videos/file602cc229b23b1.png">
+			<img class='ms_text__' src="https://cloud.mediasystems.am/banners/videos/file602cc2d87a936.png  ">
+		</div>
+	</a>
+	<script>function click_im() { document.getElementById("havayi").innerHTML = `<img src="http://ads.adfox.ru/376262/getCode?p1=cygvz&p2=frfe&pfc=fhfht&pfb=phvkt&pr=${Math.round(Math.random() * 10000000)}&pe=b" border=0 width=1 height=1>` }</script>
+</body>
+<script>
+	window.parent.postMessage('inpageCreated', window.parent)
+	window.onload = function () {
+		document.body.style.display = 'block';
+	}
+</script>
+
+</html>

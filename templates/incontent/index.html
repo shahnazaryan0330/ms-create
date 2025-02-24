@@ -1,0 +1,235 @@
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            position: relative;
+            margin: 0;
+            padding: 0;
+        }
+
+        * {
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: center;
+            user-select: none;
+        }
+
+        #banner:hover {
+            cursor: pointer;
+        }
+
+        .display_none,
+        body {
+            display: none;
+        }
+
+        #banner {
+            max-width: 370px;
+            height: 280px;
+            background-image: url("");
+            background-size: cover;
+            overflow: hidden;
+            position: relative;
+            margin: auto;
+        }
+
+        .bannerClickTag {
+            height: 100%;
+            display: flex;
+            flex-direction: row;
+        }
+
+        .main_content {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .main_content * {
+            animation-timing-function: ease;
+            animation-duration: 7s;
+            animation-iteration-count: infinite;
+            position: absolute;
+        }
+
+        [mother='true'] * {
+            width: 100%;
+            height: 100%;
+        }
+
+        [pos='relative'] {
+            position: relative;
+        }
+    </style>
+    {{cssLinks}}
+</head>
+
+<body>
+    <div id='banner'>
+        <a href="%reference%" target="%target%" class="bannerClickTag">
+            <div class="main_content">
+
+            </div>
+        </a>
+
+        <span class="ms_close_button" id="closeButtonAdfox"></span>
+        <a class="classs" onclick='click_im();'
+            href="https://mediasystems.am/?utm_source=network&utm_medium=incontent&utm_campaign=ms" target="_blank">
+            <div class="display_none">
+                <div id="havayi"></div>
+            </div>
+            <div id="logo_ms"><img class='ms_logo__' src="https://mediasystems.am/banners/videos/file602cc229b23b1.png">
+                <img class='ms_text__' src="https://mediasystems.am/banners/videos/file602cc2d87a936.png  ">
+            </div>
+        </a>
+        <div class="display_none">
+            <img src="" alt="">
+        </div>
+    </div>
+
+    <style>
+        .ms_close_button {
+            position: absolute;
+            right: 3px;
+            top: 1px;
+            width: 31px;
+            height: 31px;
+            opacity: 1;
+            z-index: 999999;
+            border-radius: 25px;
+        }
+
+        .ms_close_button:after,
+        .ms_close_button:before {
+            position: absolute;
+            left: calc(50% - 4px);
+            top: 50%;
+            content: ' ';
+            height: 30px;
+            border: solid 1px #000;
+            width: 2px;
+            background-color: #fff;
+            transition: .5s ease;
+        }
+
+        .ms_close_button:before {
+            transform: translate(50%, -50%) rotate(45deg);
+        }
+
+        .ms_close_button:after {
+            transform: translate(50%, -50%) rotate(-45deg);
+        }
+
+        .ms_close_button:hover {
+            cursor: pointer;
+        }
+
+        .ms_close_button:hover:after {
+            transform: translate(50%, -50%) rotate(45deg);
+            border: solid 1px #fff;
+            background-color: #000;
+            outline: 0;
+        }
+
+        .ms_close_button:hover:before {
+            transform: translate(50%, -50%) rotate(-45deg);
+            border: solid 1px #fff;
+            background-color: #000;
+            outline: 0;
+        }
+    </style>
+    <style>
+        #banner,
+        body {
+            position: relative !important;
+            transition: .5s ease
+        }
+
+        .classs {
+            position: absolute !important;
+            bottom: 0;
+            right: 0;
+            height: 25px;
+            z-index: 999999999;
+            transition: .5s ease;
+            width: 39px;
+        }
+
+        .classs:hover .ms_text__ {
+            display: block;
+            opacity: 1;
+        }
+
+        .classs:hover {
+            width: 110px;
+        }
+
+        body {
+            position: relative;
+            transition: .5s ease
+        }
+
+        .display_none {
+            display: none;
+            transition: .5s ease;
+        }
+
+        #logo_ms {
+            right: 0;
+            left: inherit;
+            padding: 4px;
+            position: absolute;
+            top: 0;
+            display: flex;
+            justify-content: space-around;
+            transition: .5s ease;
+            padding: 0px;
+            width: 100%;
+            height: 25px;
+            overflow: hidden;
+            align-items: center;
+            border-top-left-radius: 16px;
+            border-bottom-left-radius: 16px;
+            background-color: #24202073;
+            transition: .5s ease;
+        }
+
+        .ms_logo__ {
+            width: 25px;
+            height: 25px;
+            transition: .5s ease;
+            animation: ms_logo__ 2s ease infinite;
+        }
+
+        .classs:hover .ms_logo__ {
+            transition: 2s ease;
+            transform: rotate(720deg);
+        }
+
+        .ms_text__ {
+            height: 90%;
+            width: auto;
+            display: none;
+            transition: .5s ease;
+            opacity: 0;
+        }
+    </style>
+    <script>function click_im() { document.getElementById("havayi").innerHTML = `<img src="http://ads.adfox.ru/376262/getCode?p1=cygvz&p2=frfe&pfc=fhfht&pfb=pirzr&pr=${Math.round(Math.random() * 10000000)}&pe=b" border=0 width=1 height=1>` }</script>
+
+</body>
+<script>
+    document.getElementById('closeButtonAdfox').addEventListener("click", function (e) {
+        window.destroyBanner();
+    });
+
+    window.parent.postMessage('inpageCreated', window.parent)
+    window.onload = function () {
+        document.body.style.display = 'block';
+    }
+</script>
+
+</html>

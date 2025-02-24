@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        #banner {
+            width: 96%;
+            max-width: 350px;
+            height: 170px;
+            position: fixed;
+            top: calc((100% - 170px) / 2);
+            right: 10px;
+            overflow: hidden;
+            border-radius: 10px;
+            background-color: #ffffff;
+            box-shadow: 0px 1.5px 6px 6px rgb(0 0 0 / 20%);
+            animation: shadow 10s ease infinite;
+            transform: translate(120%, 0%);
+            transition: 1.5s ease;
+
+        }
+
+        #banner.widget-open {
+            animation: widget-open 1.5s ease forwards;
+        }
+
+        @keyframes widget-open {
+            from {
+                transform: translate(120%, 0%);
+                -webkit-transform: translate(120%, 0%);
+            }
+
+            to {
+                transform: translate(0%, 0%);
+                -webkit-transform: translate(0%, 0%);
+            }
+
+        }
+
+        #banner.widget-close {
+            animation: shadow 10s ease infinite;
+            transition: transform 1s ease .1s;
+            animation: widget-close 1.5s ease forwards;
+        }
+
+        @keyframes widget-close {
+            from {
+                transform: translate(0%, 0%);
+                -webkit-transform: translate(0%, 0%);
+            }
+
+            to {
+                transform: translate(120%, 0%) !important;
+                -webkit-transform: translate(120%, 0%) !important;
+            }
+        }
+
+        .bannerClickTag {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        @keyframes banner {
+
+            0% {
+                transform: translate(120%, 0%);
+                -webkit-transform: translate(120%, 0%);
+            }
+
+            100% {
+                transform: translate(0%, 0%);
+                -webkit-transform: translate(0%, 0%);
+            }
+        }
+
+        .main {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            align-items: center;
+            background-color: #000;
+        }
+
+        /* .video_wrapper {
+            width: 78%;
+            height: 100%;
+            overflow: hidden;
+            position: relative;
+        } */
+
+        .video_wrapper video {
+            object-fit: fill;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            -webkit-transform: translate(-50%, -50%);
+        }
+
+        .video_wrapper {
+            position: relative;
+            display: flex;
+            width: 100%;
+            height: 100%;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* .video_wrapper #video {
+            object-fit: fill;
+            width: 110%;
+            height: 100%;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        } */
+
+        .controls {
+            position: absolute;
+            bottom: 10px;
+            width: 96%;
+            display: flex;
+            justify-content: space-around;
+            opacity: 0.4;
+            transition: opacity .6s, transform .6s;
+            transform: translateY(30px);
+            -webkit-transform: translateY(30px);
+        }
+
+        .main:hover .controls {
+            transform: translateY(0%);
+            -webkit-transform: translateY(0%);
+            opacity: 1;
+        }
+
+        .main:hover .controls-overlay {
+            opacity: 1;
+        }
+
+        .controls-overlay {
+            opacity: 0;
+            position: absolute;
+            width: 100%;
+            height: 30%;
+            bottom: 0;
+            background: rgb(0, 0, 0);
+            background: -moz-linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 100%);
+            background: -webkit-linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 100%);
+            background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 100%);
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#000000", endColorstr="#000000", GradientType=1);
+            transition: opacity .6s;
+            pointer-events: none;
+        }
+
+        .controls button {
+            background: transparent;
+            color: #fff;
+            font-weight: bolder;
+            text-shadow: 2px 1px 2px #000;
+            border: none;
+            cursor: pointer;
+        }
+
+        .controls .timeline {
+            flex: .9;
+            display: flex;
+            align-items: center;
+            border: none;
+        }
+
+        .controls .timeline .bar {
+            background: rgb(1, 1, 65);
+            height: 4px;
+            flex: 1;
+        }
+
+        .controls .timeline .bar .inner {
+            background: #ccc;
+            width: 0%;
+            height: 100%;
+            transition: 100ms;
+        }
+
+        .fa {
+            font-size: 16px !important;
+        }
+
+        .fa-volume-up,
+        .fa-volume-off {
+            width: 20px;
+        }
+
+        .fa-volume-off {
+            display: flex;
+            align-items: flex-start;
+            justify-content: flex-start;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="banner" id="banner">
+
+        <div class="main">
+            <a href="%reference%" target="%target%" class="bannerClickTag" draggable="false">
+
+                <div class="video_wrapper">
+                    <video src="https://mediasystems.am/banners/videos/file65bb7efebc350.mp4" id="ms_widget_video" loop
+                        muted playsinline autoplay></video>
+                </div>
+            </a>
+
+            <div class="controls-overlay"></div>
+
+            <div class="controls">
+                <button onclick="play(event)"><i class="fa fa-play"></i><i class="fa fa-pause"></i></button>
+                <div class="timeline">
+                    <div class="bar">
+                        <div class="inner"></div>
+                    </div>
+                </div>
+                <button onclick="mute(event)"><i class="fa fa-volume-up"></i><i class="fa fa-volume-off"></i></button>
+            </div>
+        </div>
+
+        <span class="ms_close_button" id="closeButtonAdfox"></span>
+        <style>
+            .ms_close_button {
+                position: absolute;
+                right: 3px;
+                top: 1px;
+                width: 31px;
+                height: 31px;
+                opacity: 1;
+                z-index: 999999;
+                border-radius: 25px;
+            }
+
+            .ms_close_button:after,
+            .ms_close_button:before {
+                position: absolute;
+                left: calc(50% - 4px);
+                top: 50%;
+                content: ' ';
+                height: 30px;
+                border: solid 1px #000;
+                width: 2px;
+                background-color: #fff;
+                transition: .5s ease;
+            }
+
+            .ms_close_button:before {
+                transform: translate(50%, -50%) rotate(45deg);
+            }
+
+            .ms_close_button:after {
+                transform: translate(50%, -50%) rotate(-45deg);
+            }
+
+            .ms_close_button:hover {
+                cursor: pointer;
+            }
+
+            .ms_close_button:hover:after {
+                transform: translate(50%, -50%) rotate(45deg);
+                border: solid 1px #fff;
+                background-color: #000;
+                outline: 0;
+            }
+
+            .ms_close_button:hover:before {
+                transform: translate(50%, -50%) rotate(-45deg);
+                border: solid 1px #fff;
+                background-color: #000;
+                outline: 0;
+            }
+        </style>
+
+    </div>
+
+    <script>
+
+
+        const banner = document.querySelector('#banner');
+
+
+        let widgetOpenTimeout;
+
+
+        let widgetOnLoadFunction = () => {
+            if (window?.parent?.Ya?.isFullscreenStarted) {
+                window.parent.addEventListener('message', (e) => {
+                    if (e.data == 'msfullscreenclosed') {
+                        setTimeout(() => {
+                            banner.classList.add('widget-open');
+                        }, 1200)
+                    }
+                })
+                return;
+            } else {
+                banner.classList.add('widget-open');
+                document.querySelector('#ms_widget_video').play();
+            }
+        }
+
+        window.addEventListener('load', () => {
+
+            document.querySelector('#closeButtonAdfox').addEventListener('click', () => {
+                banner.classList.remove('widget-open');
+                banner.classList.add('widget-close');
+                setTimeout(() => {
+                    window.parent.postMessage('widgetClose', window.parent);
+                    window.destroyBanner();
+                }, 1100)
+            })
+
+            let widgetOpenTimeout = setTimeout(widgetOnLoadFunction, 4500);
+
+        })
+
+        window.parent.addEventListener('message', (m) => {
+            if (m.data == 'fullscreenHasOpened' || m.data == 'nativeFullscreenOpened') {
+                document.querySelector('#ms_widget_video').pause();
+                clearTimeout(widgetOpenTimeout);
+            } else if (m.data == 'msfullscreenclosed') {
+                document.querySelector('#ms_widget_video').play();
+                let widgetOpenTimeout = setTimeout(widgetOnLoadFunction, 1200);
+            }
+        })
+
+    </script>
+
+
+    <script>
+
+        const video = document.querySelector("#ms_widget_video");
+
+        document.querySelector(".fa-play").style.display = "none";
+
+        video.addEventListener("timeupdate", () => {
+            let curr = (video.currentTime / video.duration) * 100
+            document.querySelector('.inner').style.width = `${curr}%`;
+        })
+
+        const play = (e) => {
+            if (video.paused) {
+                document.querySelector(".fa-play").style.display = "none";
+                document.querySelector(".fa-pause").style.display = "block";
+                video.play()
+            }
+            else {
+                document.querySelector(".fa-play").style.display = "block";
+                document.querySelector(".fa-pause").style.display = "none";
+                video.pause()
+            }
+        }
+
+        document.querySelector(".fa-volume-up").style.display = "none";
+
+        const mute = (e) => {
+            video.muted = !video.muted;
+            if (video.muted) {
+                document.querySelector(".fa-volume-up").style.display = "none";
+                document.querySelector(".fa-volume-off").style.display = "flex";
+            } else {
+                document.querySelector(".fa-volume-up").style.display = "block";
+                document.querySelector(".fa-volume-off").style.display = "none";
+            }
+        }
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>
