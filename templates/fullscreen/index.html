@@ -53,16 +53,20 @@
 		.main_content * {
 			animation-timing-function: ease;
 			animation-duration: 7s;
-			animation-iteration-count: infinite
+			animation-iteration-count: infinite;
 		}
 
 		.main_content {
-			position: relative;
 			width: 100%;
 			height: 100%;
 			display: flex;
 			align-items: center;
 			flex-direction: column
+		}
+
+		.main_content,
+		.main_content * {
+			position: absolute;
 		}
 
 		@media (max-width:801px) {
