@@ -11,3 +11,7 @@
 2. Write command ms
 ```bash
 npm install -g 'path-to-package-directory'
+```
+
+### Uninstall
+1. npm uninstall -g 'ms-create'
