@@ -2,7 +2,7 @@
 
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	{{gtagScripts}}
+	<!-- {{gtagScripts}} -->
 	<style>
 		body {
 			position: relative;
@@ -50,11 +50,11 @@
 		}
 	</style>
 
-{{cssLinks}}
+	<!-- {{cssLinks}} -->
 </head>
 
 <body>
-	<div id='banner'>
+	<div id='banner' data-banner-id="{{ClickTracker}}">
 		<a href="%reference%" target="%target%" class="bannerClickTag">
 			<div class='main'>
 			</div>
@@ -160,8 +160,7 @@
 		<div class="display_none">
 			<div id="havayi"></div>
 		</div>
-		<div id="logo_ms"><img class='ms_logo__'
-				src="https://cloud.mediasystems.am/banners/videos/file602cc229b23b1.png">
+		<div id="logo_ms"><img class='ms_logo__' src="https://cloud.mediasystems.am/banners/videos/file602cc229b23b1.png">
 			<img class='ms_text__' src="https://cloud.mediasystems.am/banners/videos/file602cc2d87a936.png  ">
 		</div>
 	</a>
@@ -173,5 +172,6 @@
 		document.body.style.display = 'block';
 	}
 </script>
+<!-- {{ClickTrackerScript}} -->
 
 </html>

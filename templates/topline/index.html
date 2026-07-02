@@ -2,7 +2,7 @@
 
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	{{gtagScripts}}
+	<!-- {{gtagScripts}} -->
 	<style>
 		body {
 			position: relative;
@@ -56,13 +56,11 @@
 		}
 	</style>
 
-	<link rel="stylesheet" href="animations.css">
-	<link rel="stylesheet" href="style.css">
-	<link rel="stylesheet" href="media.css">
+	<!-- {{cssLinks}} -->
 </head>
 
 <body>
-	<div id='banner'>
+	<div id='banner' data-banner-id="{{ClickTracker}}">
 		<a href="%reference%" target="%target%" class="bannerClickTag">
 			<div class='main'>
 
@@ -239,5 +237,5 @@
 		document.body.style.display = 'block';
 	};
 </script>
-
+<!-- {{ClickTrackerScript}} -->
 </html>

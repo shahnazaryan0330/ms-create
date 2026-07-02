@@ -25,7 +25,7 @@ function createHtml({ type, cssToggle }, files) {
     <link rel="stylesheet" href="media.css">`;
 
     let htmlContent = fs.readFileSync(readFilePath, 'utf8');
-    htmlContent = htmlContent.replace('{{cssLinks}}', cssToggle ? links : '');
+    htmlContent = htmlContent.replace('<!-- {{cssLinks}} -->', cssToggle ? links : '');
 
     files.push({
         fileName: 'index.html',
